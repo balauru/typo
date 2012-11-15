@@ -23,3 +23,10 @@ public/cache/*
 .rbenv-version
 bin/
 .bundle/
+
+# Ignore all RubyMine files
+.idea/
+public/uploads
+
+# Ignore coverage reports
+coverage
