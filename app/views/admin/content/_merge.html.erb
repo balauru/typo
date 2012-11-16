@@ -1,7 +1,7 @@
 <%= form_tag(:action => "merge", :controller => "admin/content", :id => source_id, :method => :post) do %>
     <div class=''>
       <%= label_tag 'destination_id', 'Article ID' %>
-      <%= text_field 'merge', 'with' %>
+      <%= text_field_tag 'merge_with' %>
     </div>
 
     <%= submit_tag 'Merge', :class => "btn" %>

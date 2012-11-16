@@ -21,4 +21,3 @@ Scenario: Merge article text
   When I fill in "merge_with" with the id of "Some interesting title"
   And I press "Merge"
   Then a merge article should be created
-

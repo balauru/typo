@@ -124,7 +124,7 @@ class Admin::ContentController < Admin::BaseController
       return(redirect_to :action => 'index')
     end
 
-    merged_article = Article::MergingArticles.merge(params[:id], params[:merge][:with])
+    merged_article = Article::MergingArticles.merge(params[:id], params[:merge_with])
     redirect_to :action => :edit, :id => merged_article.id
   end
 
