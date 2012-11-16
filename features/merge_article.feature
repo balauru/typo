@@ -17,8 +17,8 @@ Scenario: A non-admin cannot merge articles
 
 Scenario: Merge article text
   Given I am logged into the admin panel
-  And I go to edit article with title "Some interesting title"
-  When I fill in "merge_with" with the id of "Some other interesting title"
+  And I go to edit article with title "Some other interesting title"
+  When I fill in "merge_with" with the id of "Some interesting title"
   And I press "Merge"
   Then a merge article should be created
 

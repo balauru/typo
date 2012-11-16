@@ -16,14 +16,11 @@ class Article::MergingArticles
 
   def merge
     in_context do
-      @result = @article1.dup
-      @result.id, result.guid = nil
+      @article1.body += @article2.body
+      @article1.comments.concat(@article2.comments)
 
-      @result.body += @article2.body
-      @result.comments.concat(@article2.comments)
-
-      @result.save
+      @article1.save
     end
-    @result
+    @article1
   end
 end
