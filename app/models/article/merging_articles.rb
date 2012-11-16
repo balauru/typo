@@ -18,11 +18,11 @@ class Article::MergingArticles
     in_context do
       @article1.body += @article2.body
       @article2.comments.each do |comment|
-        comment.article = @article1
-        comment.save
+        comment.update_attribute(:article_id, @article1.id)
       end
 
       @article1.save
+      @article2.reload
       @article2.destroy
     end
     @article1

@@ -25,4 +25,5 @@ When /^I fill in "([^"]*)" with the id of "([^"]*)"$/ do |selector, title|
 end
 Then /^a merge article should be created$/ do
   Article.last.body.should == "Some interesting contentSome interesting content"
+  Article.last.comments.count.should == 2
 end

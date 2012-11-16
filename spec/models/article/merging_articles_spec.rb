@@ -14,9 +14,10 @@ describe Article::MergingArticles do
       Article.stub(:find).with(43).and_return(article2)
 
       article1.should_receive(:save).once
+      article2.stub(:reload)
       article2.should_receive(:destroy).once
 
-      comment2.should_receive(:save).once
+      comment2.should_receive(:update_attribute).once
     end
 
     subject { Article::MergingArticles.merge(42, 43) }
