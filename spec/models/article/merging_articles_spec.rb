@@ -15,6 +15,8 @@ describe Article::MergingArticles do
 
       article1.should_receive(:save).once
       article2.should_receive(:destroy).once
+
+      comment2.should_receive(:save).once
     end
 
     subject { Article::MergingArticles.merge(42, 43) }

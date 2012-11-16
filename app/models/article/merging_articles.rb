@@ -18,9 +18,8 @@ class Article::MergingArticles
     in_context do
       @article1.body += @article2.body
       @article2.comments.each do |comment|
-        comment_copy = comment.dup
-        comment_copy.id = nil
-        @article1.comments << comment_copy
+        comment.article = @article1
+        comment.save
       end
 
       @article1.save

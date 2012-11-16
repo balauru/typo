@@ -15,6 +15,8 @@ When /^there is article published by "([^"]*)" with title "([^"]*)"$/ do |login,
   article.title = title
   article.body = "Some interesting content"
   article.save
+  article.comments.build(:body => "Comment", :author => login)
+  article.save
 end
 
 When /^I fill in "([^"]*)" with the id of "([^"]*)"$/ do |selector, title|
