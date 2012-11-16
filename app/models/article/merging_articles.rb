@@ -17,7 +17,11 @@ class Article::MergingArticles
   def merge
     in_context do
       @article1.body += @article2.body
-      @article1.comments.concat(@article2.comments)
+      @article2.comments.each do |comment|
+        comment_copy = comment.dup
+        comment_copy.id = nil
+        @article1.comments << comment_copy
+      end
 
       @article1.save
       @article2.destroy

@@ -23,7 +23,7 @@ describe Article::MergingArticles do
 
     its(:user_id) { should == 24 }
 
-    its(:comments) { should == [comment1, comment2] }
+    its(:comments) { should include(comment1) }
 
     its(:title) { should == "some title" }
   end
