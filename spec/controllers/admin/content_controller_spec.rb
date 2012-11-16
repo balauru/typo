@@ -607,6 +607,13 @@ describe Admin::ContentController do
       end
     end
 
+    describe 'merge_action' do
+      it "should call merge on merge on MergingAccounts and redirect to edit the new article" do
+        Article::MergingArticles.should_receive(:merge).with(43, 44).and_return(mock_model(Article, :id => 42))
+        post :merge, :merge => { :destination_id => 44 }, :id => 43
+        response.should redirect_to("/admin/content/edit/42")
+      end
+    end
   end
 
   describe 'with publisher connection' do
