@@ -20,6 +20,7 @@ class Article::MergingArticles
       @article1.comments.concat(@article2.comments)
 
       @article1.save
+      @article2.destroy
     end
     @article1
   end

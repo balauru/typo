@@ -14,6 +14,7 @@ describe Article::MergingArticles do
       Article.stub(:find).with(43).and_return(article2)
 
       article1.should_receive(:save).once
+      article2.should_receive(:destroy).once
     end
 
     subject { Article::MergingArticles.merge(42, 43) }
