@@ -18,7 +18,10 @@ class Article::MergingArticles
     in_context do
       @result = @article1.dup
       @result.id, result.guid = nil
+
       @result.body += @article2.body
+      @result.comments.concat(@article2.comments)
+
       @result.save
     end
     @result

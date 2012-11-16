@@ -610,7 +610,7 @@ describe Admin::ContentController do
     describe 'merge_action' do
       it "should call merge on merge on MergingAccounts and redirect to edit the new article" do
         Article::MergingArticles.should_receive(:merge).with(43, 44).and_return(mock_model(Article, :id => 42))
-        post :merge, :merge => { :destination_id => 44 }, :id => 43
+        post :merge, :merge => { :with => 44 }, :id => 43
         response.should redirect_to("/admin/content/edit/42")
       end
     end
@@ -676,6 +676,13 @@ describe Admin::ContentController do
         end.should_not change(Article, :count)
       end
 
+    end
+
+    describe "merge action" do
+      it "should redirect to index" do
+        post :merge, :merge => { :with => 44 }, :id => 43
+        response.should redirect_to("/admin/content")
+      end
     end
   end
 end
