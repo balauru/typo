@@ -476,7 +476,7 @@ describe Admin::ContentController do
       request.session = { :user => @user.id }
     end
 
-    it_should_behave_like 'index action'
+    emai 'index action'
     it_should_behave_like 'new action'
     it_should_behave_like 'destroy action'
     it_should_behave_like 'autosave action'

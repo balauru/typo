@@ -21,6 +21,9 @@ module NavigationHelpers
       when /edit article with title "([^"]*)"$/i
         "/admin/content/edit/#{Content.find_by_title($1).id}"
 
+      when /^the categories page$/
+        '/admin/categories/new'
+
       # Add more mappings here.
       # Here is an example that pulls values out of the Regexp:
       #
